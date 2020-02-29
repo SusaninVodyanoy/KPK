@@ -3,19 +3,19 @@
 int main()
     {
     txCreateWindow (800, 600);
-    txSetFillColor     (TX_WHITE);
+    txSetColor     (TX_WHITE);
     //HDC catImage = txLoadImage ("cat-drawing-film.bmp");
-    //int framesx = 3;
+   //int framesx = 3;
     //int framesy = 4;
     //HDC catImage = txLoadImage ("cat-run-cycle.bmp");
-    //int framesx = 6;
-    //int framesy = 2;
+    int framesx = 6;
+    int framesy = 2;
     //HDC catImage = txLoadImage ("leopad.bmp");
     //int framesx = 5;
     //int framesy = 4;
-    HDC catImage = txLoadImage ("tiger-game-sprites.bmp");
-    int framesx = 6;
-    int framesy = 1;
+    //HDC catImage = txLoadImage ("tiger-game-sprites.bmp");
+    //int framesx = 6;
+    //int framesy = 1;
 
 
     int frameSizex = txGetExtentX (catImage) /framesx;

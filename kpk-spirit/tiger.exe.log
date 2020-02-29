@@ -1,0 +1,294 @@
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk-spirit\tiger.exe, файл: C:\TX\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1A14 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\KPK\kpk-spirit\tiger.exe: txGetExtent() at C:/TX/TX/TXLib.h (11697)
+# 1 0x0041BD90 in C:\KPK\kpk-spirit\tiger.exe: txGetExtentX() at C:/TX/TX/TXLib.h (11710)
+
+# 2 0x0042B694 in C:\KPK\kpk-spirit\tiger.exe: main() at C:/KPK/kpk-spirit/tiger.cpp (10):
+
+      8:     int framesy = 4;
+      9: 
+=>   10:     int frameSizex = txGetExtentX (catImage) /framesx;
+     11:     int frameSizey = txGetExtentY (catImage) /framesy;
+     12: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\TX\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in int main() at C:\KPK\kpk-spirit\tiger.cpp (6):
+
+      4:     {
+      5:     txCreateWindow (800, 600);
+=>    6:     HDC catImage = txLoadImage ("cat-drawing-film");
+      7:     int framesx = 3;
+      8:     int framesy = 4;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 10:13:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 10:13:33
+
+Run file:	C:\KPK\kpk-spirit\tiger.exe
+Directory:	C:\KPK\kpk-spirit
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk-spirit\tiger.exe, файл: C:\TX\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x2780 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\KPK\kpk-spirit\tiger.exe: txGetExtent() at C:/TX/TX/TXLib.h (11697)
+# 1 0x0041BD90 in C:\KPK\kpk-spirit\tiger.exe: txGetExtentX() at C:/TX/TX/TXLib.h (11710)
+
+# 2 0x0042B706 in C:\KPK\kpk-spirit\tiger.exe: main() at C:/KPK/kpk-spirit/tiger.cpp (12):
+
+     10:     int framesy = 4;
+     11: 
+=>   12:     int frameSizex = txGetExtentX (catImage) /framesx;
+     13:     int frameSizey = txGetExtentY (catImage) /framesy;
+     14: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\TX\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in int main() at C:\KPK\kpk-spirit\tiger.cpp (8):
+
+      6:     txSetColor     (TX_WHITE);
+      7:     txSetColor     (TX_WHITE);
+=>    8:     HDC catImage = txLoadImage ("cat-drawing-film");
+      9:     int framesx = 3;
+     10:     int framesy = 4;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 10:16:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 10:16:29
+
+Run file:	C:\KPK\kpk-spirit\tiger.exe
+Directory:	C:\KPK\kpk-spirit
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk-spirit\tiger.exe, файл: C:\TX\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x34EC (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\KPK\kpk-spirit\tiger.exe: txGetExtent() at C:/TX/TX/TXLib.h (11697)
+# 1 0x0041BD90 in C:\KPK\kpk-spirit\tiger.exe: txGetExtentX() at C:/TX/TX/TXLib.h (11710)
+
+# 2 0x0042B6CD in C:\KPK\kpk-spirit\tiger.exe: main() at C:/KPK/kpk-spirit/tiger.cpp (11):
+
+      9:     int framesy = 4;
+     10: 
+=>   11:     int frameSizex = txGetExtentX (catImage) /framesx;
+     12:     int frameSizey = txGetExtentY (catImage) /framesy;
+     13: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\TX\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in int main() at C:\KPK\kpk-spirit\tiger.cpp (7):
+
+      5:     txCreateWindow (800, 600);
+      6:     txSetColor     (TX_WHITE);
+=>    7:     HDC catImage = txLoadImage ("cat-drawing-filmz.bmp");
+      8:     int framesx = 3;
+      9:     int framesy = 4;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 10:46:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 10:46:31
+
+Run file:	C:\KPK\kpk-spirit\tiger.exe
+Directory:	C:\KPK\kpk-spirit
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk-spirit\tiger.exe, файл: C:\TX\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x34EC (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\KPK\kpk-spirit\tiger.exe: txGetExtent() at C:/TX/TX/TXLib.h (11697)
+# 1 0x0041BDA3 in C:\KPK\kpk-spirit\tiger.exe: txGetExtentY() at C:/TX/TX/TXLib.h (11717)
+
+# 2 0x0042B6FE in C:\KPK\kpk-spirit\tiger.exe: main() at C:/KPK/kpk-spirit/tiger.cpp (12):
+
+     10: 
+     11:     int frameSizex = txGetExtentX (catImage) /framesx;
+=>   12:     int frameSizey = txGetExtentY (catImage) /framesy;
+     13: 
+     14:     int anim = 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\TX\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in int main() at C:\KPK\kpk-spirit\tiger.cpp (12):
+
+     10: 
+     11:     int frameSizex = txGetExtentX (catImage) /framesx;
+=>   12:     int frameSizey = txGetExtentY (catImage) /framesy;
+     13: 
+     14:     int anim = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 10:46:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 10:46:30
+
+Run file:	C:\KPK\kpk-spirit\tiger.exe
+Directory:	C:\KPK\kpk-spirit
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk-spirit\tiger.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x34EC (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk-spirit\tiger.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B7E0 in C:\KPK\kpk-spirit\tiger.exe: main() at C:/KPK/kpk-spirit/tiger.cpp (20):
+
+     18:         txBitBlt (txDC(), 100, 100, frameSizex, frameSizey,
+     19:                   catImage,
+=>   20:                   (t % framesx) * frameSizex, anim * frameSizey);
+     21:         if (txGetAsyncKeyState ('1')) anim = 0;
+     22:         if (txGetAsyncKeyState ('2')) anim = 1;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk-spirit\tiger.cpp (20):
+
+     18:         txBitBlt (txDC(), 100, 100, frameSizex, frameSizey,
+     19:                   catImage,
+=>   20:                   (t % framesx) * frameSizex, anim * frameSizey);
+     21:         if (txGetAsyncKeyState ('1')) anim = 0;
+     22:         if (txGetAsyncKeyState ('2')) anim = 1;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 10:46:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 10:46:31
+
+Run file:	C:\KPK\kpk-spirit\tiger.exe
+Directory:	C:\KPK\kpk-spirit
+
+--------------------------------------------------
