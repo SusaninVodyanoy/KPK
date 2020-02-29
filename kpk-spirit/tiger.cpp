@@ -4,11 +4,11 @@ int main()
     {
     txCreateWindow (800, 600);
     HDC catImage = txLoadImage ("tiger-game-sprites.bmp");
-    int framesx = 4;
-    int framesy = 3;
+    int framesx = 6;
+    int framesy = 1;
 
-    int frameSizex = txGetExtenx (catImage) framesx/;
-    int frameSizey = txGetExteny (catImage) framesy/;
+    int frameSizex = txGetExtentX (catImage) /framesx;
+    int frameSizey = txGetExtentY (catImage) /framesy;
 
     int anim = 0;
 
