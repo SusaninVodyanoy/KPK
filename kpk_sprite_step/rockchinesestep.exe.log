@@ -265,3 +265,1235 @@ Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
 Directory:	C:\KPK\kpk_sprite_step
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1EE8 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAE3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:52:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:52:25
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1EE8 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAE3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:52:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:52:25
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1EE8 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAE3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:52:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:52:25
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#4: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1EE8 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAE3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), 0, 0, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:52:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:52:25
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x3188 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAFD in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:53:27, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:53:39
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x3188 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAFD in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:53:27, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:53:39
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x3188 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAFD in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:53:27, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:53:38
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12290, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 800, 600} не полностью лежит внутри изображения-источника {0, 0, 252, 408}, функция txTransparentBlt() работать не будет.
+
+#4: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x3188 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: C:\TX\TX\TXLib.h (12289) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00422AD0 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txTransparentBlt() at C:/TX/TX/TXLib.h (12290)
+
+# 1 0x0042BAFD in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+# 2 0x0042B7C4 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (25):
+
+     23:         {
+     24: 
+=>   25:         animic (s1,t,anim);
+     26: 
+     27:         if (txGetAsyncKeyState (VK_LEFT))
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at C:\TX\TX\TXLib.h (12289):
+
+  12287:         {
+  12288: $       SetLastError (ERROR_INVALID_DATA);
+=>12289: $       TX_ERROR ("Прямоугольник копируемой области {%lg, %lg, %lg, %lg} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, функция "
+  12290:                   "txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  12291:         }
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (64):
+
+     62: void animic (AttributeImg ig, int step, int anim)
+     63:     {
+=>   64:     txTransparentBlt (txDC(), ig.posx, ig.posy, 800, 600, ig.catImage,0,0, TX_WHITE);
+     65:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     66:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:53:27, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:53:39
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3224 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:47:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:48:06
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3224 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:47:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:48:06
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3224 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:47:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:48:06
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#4: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3224 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:47:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:48:06
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#5: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3224 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:47:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:48:06
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#6: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3224 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:47:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:48:05
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3778 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:50:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:50:20
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3778 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:50:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:50:20
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3778 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:50:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:50:20
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#4: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3778 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:50:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:50:20
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#5: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3778 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:50:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:50:20
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#6: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x3778 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042B9EC in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (37):
+
+     35: 
+     36:          if (!GetKeyState (VK_SCROLL))
+=>   37:             txBitBlt (txDC(),0,0,0,0, backImage);
+     38: 
+     39: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 14:50:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 14:50:19
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
