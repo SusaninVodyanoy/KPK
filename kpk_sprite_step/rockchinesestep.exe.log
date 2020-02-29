@@ -1,0 +1,267 @@
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1298 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txGetExtent() at C:/TX/TX/TXLib.h (11697)
+# 1 0x0041BD90 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txGetExtentX() at C:/TX/TX/TXLib.h (11710)
+
+# 2 0x0042B9EA in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (62):
+
+     60:     {
+     61: 
+=>   62:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     63:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+     64:     txBitBlt (txDC(), ig.posx, ig.posy, frameSizex, frameSizey,
+
+# 3 0x0042B74A in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (27):
+
+     25:     for (int t = 0; !txGetAsyncKeyState (VK_ESCAPE); t++, anim)
+     26:         {
+=>   27:         animic (s1,t,anim);
+     28:         if (txGetAsyncKeyState (VK_LEFT))
+     29:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\TX\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (25):
+
+     23: 
+     24:     int anim = 0;
+=>   25:     for (int t = 0; !txGetAsyncKeyState (VK_ESCAPE); t++, anim)
+     26:         {
+     27:         animic (s1,t,anim);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:22:51, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:23:05
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1298 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txGetExtent() at C:/TX/TX/TXLib.h (11697)
+# 1 0x0041BDA3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txGetExtentY() at C:/TX/TX/TXLib.h (11717)
+
+# 2 0x0042BA1A in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (63):
+
+     61: 
+     62:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+=>   63:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+     64:     txBitBlt (txDC(), ig.posx, ig.posy, frameSizex, frameSizey,
+     65:               ig.catImage,
+
+# 3 0x0042B74A in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (27):
+
+     25:     for (int t = 0; !txGetAsyncKeyState (VK_ESCAPE); t++, anim)
+     26:         {
+=>   27:         animic (s1,t,anim);
+     28:         if (txGetAsyncKeyState (VK_LEFT))
+     29:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\TX\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (63):
+
+     61: 
+     62:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+=>   63:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+     64:     txBitBlt (txDC(), ig.posx, ig.posy, frameSizex, frameSizey,
+     65:               ig.catImage,
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:22:51, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:23:04
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 12252, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1298 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004223A5 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txBitBlt() at C:/TX/TX/TXLib.h (12252)
+
+# 1 0x0042BAE7 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (66):
+
+     64:     txBitBlt (txDC(), ig.posx, ig.posy, frameSizex, frameSizey,
+     65:               ig.catImage,
+=>   66:               (step % ig.kadrx) * frameSizex, anim * frameSizey);
+     67: 
+     68: 
+
+# 2 0x0042B74A in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (27):
+
+     25:     for (int t = 0; !txGetAsyncKeyState (VK_ESCAPE); t++, anim)
+     26:         {
+=>   27:         animic (s1,t,anim);
+     28:         if (txGetAsyncKeyState (VK_LEFT))
+     29:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double) at C:\TX\TX\TXLib.h (12252):
+
+  12250:     {
+  12251: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12252: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12253: 
+  12254: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in void animic(AttributeImg, int, int) at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (66):
+
+     64:     txBitBlt (txDC(), ig.posx, ig.posy, frameSizex, frameSizey,
+     65:               ig.catImage,
+=>   66:               (step % ig.kadrx) * frameSizex, anim * frameSizey);
+     67: 
+     68: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:22:51, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:23:05
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\kpk_sprite_step\rockchinesestep.exe, файл: C:\TX\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#4: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005052F4 (32-bit), Flags: CMdRe0, Thread: 0x1298 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txGetExtent() at C:/TX/TX/TXLib.h (11697)
+# 1 0x0041BD90 in C:\KPK\kpk_sprite_step\rockchinesestep.exe: txGetExtentX() at C:/TX/TX/TXLib.h (11710)
+
+# 2 0x0042B9EA in C:\KPK\kpk_sprite_step\rockchinesestep.exe: animic() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (62):
+
+     60:     {
+     61: 
+=>   62:     int frameSizex = txGetExtentX (ig.catImage) /ig.kadrx;
+     63:     int frameSizey = txGetExtentY (ig.catImage) /ig.kadry;
+     64:     txBitBlt (txDC(), ig.posx, ig.posy, frameSizex, frameSizey,
+
+# 3 0x0042B74A in C:\KPK\kpk_sprite_step\rockchinesestep.exe: main() at C:/KPK/kpk_sprite_step/rockchinesestep.cpp (27):
+
+     25:     for (int t = 0; !txGetAsyncKeyState (VK_ESCAPE); t++, anim)
+     26:         {
+=>   27:         animic (s1,t,anim);
+     28:         if (txGetAsyncKeyState (VK_LEFT))
+     29:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\TX\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in int main() at C:\KPK\kpk_sprite_step\rockchinesestep.cpp (25):
+
+     23: 
+     24:     int anim = 0;
+=>   25:     for (int t = 0; !txGetAsyncKeyState (VK_ESCAPE); t++, anim)
+     26:         {
+     27:         animic (s1,t,anim);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Feb 29 2020 12:22:51, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 12:23:04
+
+Run file:	C:\KPK\kpk_sprite_step\rockchinesestep.exe
+Directory:	C:\KPK\kpk_sprite_step
+
+--------------------------------------------------
