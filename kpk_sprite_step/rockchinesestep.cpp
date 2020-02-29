@@ -52,7 +52,7 @@ int main()
             anim = 2;
             s1.posx = s1.posx - size_step;
             color = txGetPixel (s1.posx,s1.posy, mapImage);
-            if  (color != RGB (255, 0, 0)) {s1.posy = oldx, s1.posy = oldy;}
+            if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
             animic (s1,t,anim);
             }
 
@@ -60,8 +60,8 @@ int main()
             {
             anim = 3;
             s1.posx = s1.posx + size_step;
-            color = txGetPixel (s1.posx+txGetExtentX (s1.catImage)/s1.kadrx,s1.posy, mapImage );
-            if  (color != RGB (255, 0, 0)) {s1.posy = oldx, s1.posy = oldy;}
+            color = txGetPixel (s1.posx,s1.posx, mapImage );
+            if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
             animic (s1,t,anim);
             }
 
@@ -70,7 +70,7 @@ int main()
             anim = 1;
             s1.posy = s1.posy - size_step;
             color = txGetPixel (s1.posx,s1.posy, mapImage );
-            if  (color != RGB (255, 0, 0)) {s1.posy = oldx, s1.posy = oldy;}
+            if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
             animic (s1,t,anim);
             }
 
@@ -78,8 +78,8 @@ int main()
             {
             anim = 0;
             s1.posy = s1.posy + size_step;
-            color = txGetPixel (s1.posx,s1.posy+txGetExtentX (s1.catImage)/s1.kadry, mapImage );
-            if  (color != RGB (255, 0, 0)) {s1.posy = oldx, s1.posy = oldy;}
+            color = txGetPixel (s1.posx,s1.posy, mapImage );
+            if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
             animic (s1,t,anim);
             }
 
