@@ -12,7 +12,7 @@ void animic (AttributeImg ig, int step, int anim);
 
 int main()
     {
-    AttributeImg s1 = {100, 100, 5, 4, txLoadImage ("rockchinesestep2.bmp")};
+    AttributeImg s1 = {100, 100, 5, 4, txLoadImage ("rockchinesestep3.bmp")};
 
     txCreateWindow (800, 600);
     txBegin ();
@@ -22,6 +22,7 @@ int main()
 
     int size_step = 5;
     int anim = 0;
+
     for (int t = 0; !txGetAsyncKeyState (VK_ESCAPE); t++, anim)
         {
 
@@ -39,9 +40,9 @@ int main()
 
 
         COLORREF color = txGetPixel (s1.posx,s1.posy, mapImage );
-        $x(color);
+        //$x(color);
 
-       //animic (s1,t,anim);
+        //animic (s1,t,anim);
 
 
 
@@ -51,7 +52,7 @@ int main()
             {
             anim = 2;
             s1.posx = s1.posx - size_step;
-            color = txGetPixel (s1.posx,s1.posy, mapImage);
+            color = txGetPixel (s1.posx,s1.posy+txGetExtentY (s1.catImage) /(2*s1.kadry), mapImage);
             if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
             animic (s1,t,anim);
             }
@@ -60,7 +61,7 @@ int main()
             {
             anim = 3;
             s1.posx = s1.posx + size_step;
-            color = txGetPixel (s1.posx,s1.posx, mapImage );
+            color = txGetPixel (s1.posx+txGetExtentX (s1.catImage) /s1.kadrx,s1.posy+txGetExtentY (s1.catImage) /(2*s1.kadry), mapImage );
             if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
             animic (s1,t,anim);
             }
@@ -69,8 +70,8 @@ int main()
             {
             anim = 1;
             s1.posy = s1.posy - size_step;
-            color = txGetPixel (s1.posx,s1.posy, mapImage );
-            if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
+            color = txGetPixel (s1.posx,s1.posy+txGetExtentY (s1.catImage) /(2*s1.kadry), mapImage );
+            if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy+1;}
             animic (s1,t,anim);
             }
 
@@ -78,7 +79,7 @@ int main()
             {
             anim = 0;
             s1.posy = s1.posy + size_step;
-            color = txGetPixel (s1.posx,s1.posy, mapImage );
+            color = txGetPixel (s1.posx,s1.posy+txGetExtentY (s1.catImage) /s1.kadry, mapImage );
             if  (color != RGB (255, 0, 0)) {s1.posx = oldx, s1.posy = oldy;}
             animic (s1,t,anim);
             }
