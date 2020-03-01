@@ -14,9 +14,8 @@ int main()
 
 void DrawGraphic (int func, COLORREF color)
     {
-    txSetColor      (color);
-    txSetFillColor  (color);
-
+    tx
+    
     double x = -10;
     while (x<= +10)
         {
