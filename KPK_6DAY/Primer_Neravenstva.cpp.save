@@ -1,0 +1,39 @@
+
+#include "TXLib.h"
+
+void DrawParabola ();
+void DrawCircle ();
+
+int main()
+    {
+    txCreateWindow (800, 600);
+
+    DrawParabola ();
+    DrawCircle ();
+
+    return 0;
+    }
+
+void DrawParabola ()
+    {
+    txSetColor      (TX_LIGHTRED);
+    txSetFillColor  (TX_LIGHTRED);
+    for (double y = -10; y<=10; y += 0.15)
+    for (double x = -10; X<=10; x += 0.15)
+        {
+         if (y>x*x)
+            xCircle (400+50*x, 300 - 50*y, 2);
+        }
+    }
+
+void DrawCircle ()
+    {
+    txSetColor      (TX_LIGHTGREEN);
+    txSetFillColor  (TX_LIGHTGREEN);
+    for (double Y = -10; y<=10; y += 0.15)
+    for (double x = -10; X<=10; x += 0.15)
+        {
+         if (x*x+y*y<=5)
+            xCircle (400+50*x, 300 - 50*y, 2);
+        }
+    }
