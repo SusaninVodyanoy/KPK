@@ -7,22 +7,31 @@ int sizex, sizey;
 COLORREF corolBody;
 COLORREF corolFrame;
 bool CLick;
+double (*func) (double x);
 void Draw    () const;
 void OnCLick (int numb);
+void DrawGraphic ();
 };
+
+//void DrawGraphic    (double (*func) (double x), COLORREF color,
+//                    double k = 1, double l = 1,
+//                    double a = 0, double b = 0);
+
+double Sqr          (double x);
+
 
 void SelectWay ();
 
 int main()
     {
 
-    Button Buttons [7] = {{ 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
-                          {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
-                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
-                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
-                          {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
-                          {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
-                          {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false}};
+    Button Buttons [7] = {{ 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, sin},
+                          {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, cos},
+                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, Sqr},
+                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, sqrt},
+                          {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, abs},
+                          {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, sin},
+                          {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, sin}};
 
 
     txCreateWindow (800, 600);
@@ -107,8 +116,48 @@ void Button::OnCLick (int numb)
         if (txMouseButtons() & 1)
             {
             CLick=true;
+            DrawGraphic ();
             printf ("Нажата кнопка %d\n", numb);
             }
         }
     }
+
+typedef double (*func) (double x);
+
+void Button::DrawGraphic (func fun)/*, COLORREF color,
+                    double k, double l,
+                    double a, double b) */
+    {
+    txSetColor      (color);
+    txSetFillColor  (color);
+
+     int k=1,l=1,a=0,b=0;
+
+
+    double x = -10;
+    while (x<= +10)
+        {
+        double y = k*(*fun) (l*x+a)+b;
+        /*switch (func)
+            {
+            case SIN: y = sin (x);break;
+            case SQR: y = Sqr (x);break;
+
+            default: printf ("ERROR: DrawGraphic(): Invalid func %d\n", func);
+            }*/
+
+        txCircle (400+50*x, 300 - 50*y, 2);
+
+        x += 0.01 ;
+        }
+    }
+//void Button::CHeckOnCLick
+ //   {
+ //
+ //           DrawGraphic(func,   TX_LIGHTGREEN   ,t   , 1        );
+    //}
+    //}
+
+double Sqr   (double x) {return x*x;}
+
 

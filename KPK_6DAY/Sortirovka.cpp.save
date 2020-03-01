@@ -7,22 +7,31 @@ int sizex, sizey;
 COLORREF corolBody;
 COLORREF corolFrame;
 bool CLick;
+double (*func_t) (double x);
 void Draw    () const;
-void OnCLick (int numb) const;
+void OnCLick (int numb);
+void CHeckOnCLick
 };
 
+void DrawGraphic    (double (*func) (double x), COLORREF color,
+                    double k = 1, double l = 1,
+                    double a = 0, double b = 0);
+
+double Sqr          (double x); 
+ 
+ 
 void SelectWay ();
 
 int main()
     {
 
-    Button Buttons [7] = {{ 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, FALSE},
-                          {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, FALSE},
-                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, FALSE},
-                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, FALSE},
-                          {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, FALSE},
-                          {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, FALSE},
-                          {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, FALSE}};
+    Button Buttons [7] = {{ 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, sin},
+                          {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false, c},
+                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
+                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
+                          {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
+                          {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false},
+                          {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false}};
 
 
     txCreateWindow (800, 600);
@@ -99,16 +108,52 @@ void Button::Draw () const
 
     }
 
-void Button::OnCLick (int numb) const
+void Button::OnCLick (int numb)
     {
     if (txMouseX()>posx && txMouseX()<posx+sizex && txMouseY()>posy && txMouseY()<posy+sizey)
         {
         printf ("Мышь наведена на кнопку %d\n", numb);
-        if (txMouseButtons() & 1) 
+        if (txMouseButtons() & 1)
             {
-            Click=True;
+            CLick=true;
             printf ("Нажата кнопка %d\n", numb);
             }
         }
     }
 
+typedef double (*func_t) (double x);
+
+void DrawGraphic (func_t func, COLORREF color,
+                    double k, double l,
+                    double a, double b)
+    {
+    txSetColor      (color);
+    txSetFillColor  (color);
+
+    double x = -10;
+    while (x<= +10)
+        {
+        double y = k*(*func) (l*x+a)+b;
+        /*switch (func)
+            {
+            case SIN: y = sin (x);break;
+            case SQR: y = Sqr (x);break;
+
+            default: printf ("ERROR: DrawGraphic(): Invalid func %d\n", func);
+            }*/
+
+        txCircle (400+50*x, 300 - 50*y, 2);
+
+        x += 0.01 ;
+        }
+    }
+
+double Sqr   (double x) {return x*x;}
+
+void Button:: CHeckOnCLick
+    {
+    if (CLick)
+            {
+            DrawGraphic(&sin,   TX_LIGHTGREEN   ,t   , 1        );
+            }
+    }
