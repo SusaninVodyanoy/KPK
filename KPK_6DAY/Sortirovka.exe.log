@@ -1,0 +1,134 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\KPK\KPK_6DAY\Sortirovka.exe,
+
+ВНЕЗАПНО: Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x76B83DB2 в функции RaiseException(). Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdRe0, Thread: 0x1924 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x76B83DB2 in C:\WINDOWS\System32\KERNELBASE.dll: RaiseException()
+# 1 0x74B32585 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 2 0x74B32350 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 3 0x74B34B48 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 4 0x74B2F1E0 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 5 0x74B243C8 in C:\WINDOWS\System32\msvcrt.dll: sqrt()
+
+# 6 0x0042C0CA in C:\KPK\KPK_6DAY\Sortirovka.exe: OnCLick() at C:/KPK/KPK_6DAY/Sortirovka.cpp (119):
+
+    117:             {
+    118:             CLick=true;
+=>  119:             DrawGraphic ();
+    120:             printf ("Нажата кнопка %d\n", numb);
+    121:             }
+
+# 7 0x0042B966 in C:\KPK\KPK_6DAY\Sortirovka.exe: main() at C:/KPK/KPK_6DAY/Sortirovka.cpp (47):
+
+     45:             {
+     46:             Buttons[i].Draw     ();
+=>   47:             Buttons[i].OnCLick  (i);
+     48:             }
+     49:         SelectWay ();
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in void Button::DrawGraphic() at C:\KPK\KPK_6DAY\Sortirovka.cpp (132):
+
+    130:     {
+    131:     txSetColor      (TX_LIGHTRED);
+=>  132:     txSetFillColor  (TX_LIGHTRED);
+    133: 
+    134:     double k = 1, l = 1, a = 0, b = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Mar  1 2020 21:23:36, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 01 2020 21:23:48
+
+Run file:	C:\KPK\KPK_6DAY\Sortirovka.exe
+Directory:	C:\KPK\KPK_6DAY
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\KPK\KPK_6DAY\Sortirovka.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x76B83DB2 в функции RaiseException(). Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdRe0, Thread: 0x1924 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x76B83DB2 in C:\WINDOWS\System32\KERNELBASE.dll: RaiseException()
+# 1 0x74B32585 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 2 0x74B32350 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 3 0x74B34B48 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 4 0x74B2F1E0 in C:\WINDOWS\System32\msvcrt.dll: modf()
+# 5 0x74B243C8 in C:\WINDOWS\System32\msvcrt.dll: sqrt()
+
+# 6 0x0042C0CA in C:\KPK\KPK_6DAY\Sortirovka.exe: OnCLick() at C:/KPK/KPK_6DAY/Sortirovka.cpp (119):
+
+    117:             {
+    118:             CLick=true;
+=>  119:             DrawGraphic ();
+    120:             printf ("Нажата кнопка %d\n", numb);
+    121:             }
+
+# 7 0x0042B966 in C:\KPK\KPK_6DAY\Sortirovka.exe: main() at C:/KPK/KPK_6DAY/Sortirovka.cpp (47):
+
+     45:             {
+     46:             Buttons[i].Draw     ();
+=>   47:             Buttons[i].OnCLick  (i);
+     48:             }
+     49:         SelectWay ();
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in void Button::DrawGraphic() at C:\KPK\KPK_6DAY\Sortirovka.cpp (132):
+
+    130:     {
+    131:     txSetColor      (TX_LIGHTRED);
+=>  132:     txSetFillColor  (TX_LIGHTRED);
+    133: 
+    134:     double k = 1, l = 1, a = 0, b = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Mar  1 2020 21:23:36, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 01 2020 21:23:48
+
+Run file:	C:\KPK\KPK_6DAY\Sortirovka.exe
+Directory:	C:\KPK\KPK_6DAY
+
+--------------------------------------------------
