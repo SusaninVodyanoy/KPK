@@ -1,0 +1,12 @@
+
+#include "TXLib.h"
+
+int main()
+    {
+    CONST int Size = 20;
+    int data[Size] = {};
+
+    
+
+    return 0;
+    }

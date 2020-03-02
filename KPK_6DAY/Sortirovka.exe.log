@@ -132,3 +132,260 @@ Run file:	C:\KPK\KPK_6DAY\Sortirovka.exe
 Directory:	C:\KPK\KPK_6DAY
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\KPK\KPK_6DAY\Sortirovka.exe,
+
+ВНЕЗАПНО: Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x0041DF82 в функции txEllipse() в файле C:/TX/TX/TXLib.h на строке 11914. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdRe0, Thread: 0x2B5C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041DF82 in C:\KPK\KPK_6DAY\Sortirovka.exe: txEllipse() at C:/TX/TX/TXLib.h (11914)
+# 1 0x0041E1C6 in C:\KPK\KPK_6DAY\Sortirovka.exe: txCircle() at C:/TX/TX/TXLib.h (11921)
+
+# 2 0x0042C1CA in C:\KPK\KPK_6DAY\Sortirovka.exe: DrawGraphic() at C:/KPK/KPK_6DAY/Sortirovka.cpp (145):
+
+    143:         double y = k*func(l*x+a)+b;
+    144: 
+=>  145:         txCircle (400+50*x, 300 - 50*y, 2);
+    146: 
+    147:         x += 0.01 ;
+
+# 3 0x0042C0B7 in C:\KPK\KPK_6DAY\Sortirovka.exe: OnCLick() at C:/KPK/KPK_6DAY/Sortirovka.cpp (122):
+
+    120:             {
+    121:             CLick=true;
+=>  122:             DrawGraphic ();
+    123:             //printf ("Нажата кнопка %d\n", numb);
+    124:             }
+
+# 4 0x0042B966 in C:\KPK\KPK_6DAY\Sortirovka.exe: main() at C:/KPK/KPK_6DAY/Sortirovka.cpp (50):
+
+     48:             {
+     49:             Buttons[i].Draw     ();
+=>   50:             Buttons[i].OnCLick  (i);
+     51:             }
+     52:         SelectWay ();
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txEllipse(double, double, double, double, HDC) at C:\TX\TX\TXLib.h (11914):
+
+  11912: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return false;
+  11913: 
+=>11914: $   return txGDI ((Win32::Ellipse (dc, ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1))), dc);
+  11915:     }
+  11916: 
+
+# 1 in bool {anonymous}::TX::txCircle(double, double, double) at C:\TX\TX\TXLib.h (11921):
+
+  11919: bool txCircle (double x, double y, double r)
+  11920:     {
+=>11921: $1  return txEllipse (x-r, y-r, x+r, y+r);
+  11922:     }
+  11923: 
+
+# 2 in void Button::DrawGraphic() at C:\KPK\KPK_6DAY\Sortirovka.cpp (145):
+
+    143:         double y = k*func(l*x+a)+b;
+    144: 
+=>  145:         txCircle (400+50*x, 300 - 50*y, 2);
+    146: 
+    147:         x += 0.01 ;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Mar  1 2020 21:47:19, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 01 2020 21:47:38
+
+Run file:	C:\KPK\KPK_6DAY\Sortirovka.exe
+Directory:	C:\KPK\KPK_6DAY
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\KPK\KPK_6DAY\Sortirovka.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x0041DF82 в функции txEllipse() в файле C:/TX/TX/TXLib.h на строке 11914. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdRe0, Thread: 0x2B5C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041DF82 in C:\KPK\KPK_6DAY\Sortirovka.exe: txEllipse() at C:/TX/TX/TXLib.h (11914)
+# 1 0x0041E1C6 in C:\KPK\KPK_6DAY\Sortirovka.exe: txCircle() at C:/TX/TX/TXLib.h (11921)
+
+# 2 0x0042C1CA in C:\KPK\KPK_6DAY\Sortirovka.exe: DrawGraphic() at C:/KPK/KPK_6DAY/Sortirovka.cpp (145):
+
+    143:         double y = k*func(l*x+a)+b;
+    144: 
+=>  145:         txCircle (400+50*x, 300 - 50*y, 2);
+    146: 
+    147:         x += 0.01 ;
+
+# 3 0x0042C0B7 in C:\KPK\KPK_6DAY\Sortirovka.exe: OnCLick() at C:/KPK/KPK_6DAY/Sortirovka.cpp (122):
+
+    120:             {
+    121:             CLick=true;
+=>  122:             DrawGraphic ();
+    123:             //printf ("Нажата кнопка %d\n", numb);
+    124:             }
+
+# 4 0x0042B966 in C:\KPK\KPK_6DAY\Sortirovka.exe: main() at C:/KPK/KPK_6DAY/Sortirovka.cpp (50):
+
+     48:             {
+     49:             Buttons[i].Draw     ();
+=>   50:             Buttons[i].OnCLick  (i);
+     51:             }
+     52:         SelectWay ();
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txEllipse(double, double, double, double, HDC) at C:\TX\TX\TXLib.h (11914):
+
+  11912: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return false;
+  11913: 
+=>11914: $   return txGDI ((Win32::Ellipse (dc, ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1))), dc);
+  11915:     }
+  11916: 
+
+# 1 in bool {anonymous}::TX::txCircle(double, double, double) at C:\TX\TX\TXLib.h (11921):
+
+  11919: bool txCircle (double x, double y, double r)
+  11920:     {
+=>11921: $1  return txEllipse (x-r, y-r, x+r, y+r);
+  11922:     }
+  11923: 
+
+# 2 in void Button::DrawGraphic() at C:\KPK\KPK_6DAY\Sortirovka.cpp (145):
+
+    143:         double y = k*func(l*x+a)+b;
+    144: 
+=>  145:         txCircle (400+50*x, 300 - 50*y, 2);
+    146: 
+    147:         x += 0.01 ;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Mar  1 2020 21:47:19, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 01 2020 21:47:37
+
+Run file:	C:\KPK\KPK_6DAY\Sortirovka.exe
+Directory:	C:\KPK\KPK_6DAY
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\KPK\KPK_6DAY\Sortirovka.exe, файл: C:\TX\TX\TXLib.h, строка: 8884, функция: bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND),
+
+Сообщение: Cannot lock GDI to free resources
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdrE0, Thread: 0x2E44 (Canvas). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041DF82 in C:\KPK\KPK_6DAY\Sortirovka.exe: txEllipse() at C:/TX/TX/TXLib.h (11914)
+# 1 0x0041E1C6 in C:\KPK\KPK_6DAY\Sortirovka.exe: txCircle() at C:/TX/TX/TXLib.h (11921)
+
+# 2 0x0042C1CA in C:\KPK\KPK_6DAY\Sortirovka.exe: DrawGraphic() at C:/KPK/KPK_6DAY/Sortirovka.cpp (145):
+
+    143:         double y = k*func(l*x+a)+b;
+    144: 
+=>  145:         txCircle (400+50*x, 300 - 50*y, 2);
+    146: 
+    147:         x += 0.01 ;
+
+# 3 0x0042C0B7 in C:\KPK\KPK_6DAY\Sortirovka.exe: OnCLick() at C:/KPK/KPK_6DAY/Sortirovka.cpp (122):
+
+    120:             {
+    121:             CLick=true;
+=>  122:             DrawGraphic ();
+    123:             //printf ("Нажата кнопка %d\n", numb);
+    124:             }
+
+# 4 0x0042B966 in C:\KPK\KPK_6DAY\Sortirovka.exe: main() at C:/KPK/KPK_6DAY/Sortirovka.cpp (50):
+
+     48:             {
+     49:             Buttons[i].Draw     ();
+=>   50:             Buttons[i].OnCLick  (i);
+     51:             }
+     52:         SelectWay ();
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at C:\TX\TX\TXLib.h (8884):
+
+   8882: $   bool locked = false;
+   8883: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=> 8884: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+   8885: 
+   8886:     // Освобождаем пользовательские ресурсы
+
+# 1 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\TX\TX\TXLib.h (8804):
+
+   8802: 
+   8803:         case WM_CLOSE:          {$ if (_txCanvas_OnCLOSE      (wnd))  break;   else return 0; }
+=> 8804:         case WM_DESTROY:        {$     _txCanvas_OnDESTROY    (wnd);                return 0; }
+   8805: 
+   8806:         case WM_ERASEBKGND:     {$ if (!bkErased) { bkErased = true;  break; } else return 1; }
+
+# 2 in unsigned int {anonymous}::TX::_txCanvas_ThreadProc(void*) at C:\TX\TX\TXLib.h (8599):
+
+   8597: $       DispatchMessage  (&msg);
+   8598: 
+=> 8599: $       Sleep (0);
+   8600:         }
+   8601: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\TX\TX\TXLib.h
+Compiled:	Mar  1 2020 21:47:19, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 01 2020 21:47:38
+
+Run file:	C:\KPK\KPK_6DAY\Sortirovka.exe
+Directory:	C:\KPK\KPK_6DAY
+
+--------------------------------------------------
