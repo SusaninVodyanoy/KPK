@@ -243,7 +243,7 @@ double      InsertSort     (double x)
         if (data[vertstep-1] > data[vertstep])
             {
             int horstep2 = vertstep;
-            for (horstep2 = vertstep; data[horstep2] > data[horstep2-1]; horstep2--)
+            for (horstep2 = horstep; data[horstep2] > data[horstep2-1]; horstep2--)
                 {
 
                 data[horstep2]  = data[horstep2 - 1];
