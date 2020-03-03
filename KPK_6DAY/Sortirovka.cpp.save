@@ -18,8 +18,7 @@ void        OnCLick (int numb);
 //                    double a = 0, double b = 0);
 
 double Sqr          (double x);
-double sin2   (double x);
-double Sqr3   (double x);
+double InsertSort   (double x);
 double clerscr(double x);
 double myexit (double x);
 
@@ -35,7 +34,7 @@ int main()
     Button Buttons [7] = {{ 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  sin},
                           {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  cos},
                           {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  Sqr},
-                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  Sqr3},
+                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  InsertSort},
                           {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  clerscr},
                           {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  myexit}};
@@ -176,12 +175,10 @@ void Button::DrawGraphic ()/*, COLORREF color,
     //}
 
 double Sqr    (double x) {return x*x;}
-double Sqr3   (double x) {return x*x*x;}
-double sin2   (double x) {return sin(x*2);}
 double cos2   (double x) {return cos(2*x);}
 double clerscr(double x) {txSetFillColor (TX_BLACK);
                           txClear     ();}
-double myexit (double x) { txGetAsyncKeyState (VK_ESCAPE)=true;};
+double myexit (double x) { };
 
 /*void   CreateArray     (int (*data)[],int Size)
     {
@@ -206,24 +203,58 @@ double   BubbleSort     (double x)
         }
     for (int vertstep = 0; vertstep < Size; vertstep++)
         {
-        for (int j = 0; j < Size-1; j++)
+        for (int horstep = 0; horstep < Size-1; horstep++)
             {
             txSetColor      (TX_LIGHTGREEN);
             txSetFillColor  (TX_LIGHTGREEN);
-            txCircle (100+0.5*vertstep, 500-0.3*j, 2);
-            if (data[j] > data[j + 1])
+            txCircle (100+0.5*vertstep, 500-0.3*horstep, 2);
+            if (data[horstep] > data[horstep + 1])
                 {
-                int pool = data[j];            // создали дополнительную переменную
-                data[j]  = data[j + 1];        // меняем местами
-                data[j + 1] = pool;            // значения элементов
+                int pool = data[horstep];            // создали дополнительную переменную
+                data[horstep]  = data[horstep + 1];        // меняем местами
+                data[horstep + 1] = pool;            // значения элементов
                 txSetColor      (TX_LIGHTRED);
                 txSetFillColor  (TX_LIGHTRED);
-                txCircle (100+0.5*vertstep, 500-0.3*j, 2);
+                txCircle (100+0.5*vertstep, 500-0.3*horstep, 2);
 
                 }
 
             }
         txSleep(0);
+        }
+
+    }
+
+double      InsertSort     (double x)
+    {
+    CONST int Size = 1000;
+    int data[Size] = {};
+    for (int vertstep = 0; vertstep < Size; vertstep++)
+        {
+            assert (0<= vertstep && vertstep < Size);
+            data[vertstep] = random(Size*2); // "записываем" элементы в массив
+        }
+    for (int vertstep = 1; vertstep < Size; vertstep++)
+        {
+        txSetColor      (TX_LIGHTGREEN);
+        txSetFillColor  (TX_LIGHTGREEN);
+        txCircle (100+0.5*vertstep, 500-0.3*horstep, 2);
+        int pool = data[horstep];
+        if (data[horstep-1] > data[horstep])
+            {
+            
+            for (int horstep2 = horstep; data[horstep2] > data[horstep2-1]; horstep2--)
+                {
+                
+                data[horstep2]  = data[horstep2 - 1];        
+                
+                }
+            data[horstep2]  = pool;
+            txSetColor      (TX_LIGHTRED);
+                txSetFillColor  (TX_LIGHTRED);
+                txCircle (100+0.5*vertstep, 500-0.3*horstep, 2); 
+            }
+            txSleep(0);
         }
 
     }
