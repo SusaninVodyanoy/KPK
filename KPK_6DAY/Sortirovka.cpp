@@ -25,6 +25,10 @@ double myexit (double x);
 
 void SelectWay      ();
 
+void CreateArray    ();
+double BubbleSort   (double x);
+
+
 int main()
     {
 
@@ -32,7 +36,7 @@ int main()
                           {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  cos},
                           {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  Sqr},
                           {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  Sqr3},
-                          {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  sin2},
+                          {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  clerscr},
                           {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  myexit}};
 
@@ -134,7 +138,7 @@ void Button::DrawGraphic ()/*, COLORREF color,
     txSetColor      (TX_LIGHTRED);
     txSetFillColor  (TX_LIGHTRED);
 
-    if (!(func==clerscr || func==myexit))
+    if (!(func==clerscr || func==myexit || func==BubbleSort))
         {
         double k = 1, l = 1, a = 0, b = 0;
 
@@ -147,6 +151,21 @@ void Button::DrawGraphic ()/*, COLORREF color,
 
             x += 0.01 ;
             }
+        }
+    if (func==BubbleSort)
+        {
+        double x = 0;
+        BubbleSort(x);
+        }
+    if (func==clerscr)
+        {
+        double x = 0;
+        clerscr (x);
+        }
+    if (func==myexit)
+        {
+        double x = 0;
+        myexit (x);
         }
     }
 //void Button::CHeckOnCLick
@@ -162,5 +181,50 @@ double sin2   (double x) {return sin(x*2);}
 double cos2   (double x) {return cos(2*x);}
 double clerscr(double x) {txSetFillColor (TX_BLACK);
                           txClear     ();}
-double myexit(double x) { };
+double myexit (double x) { };
+
+/*void   CreateArray     (int (*data)[],int Size)
+    {
+    //CONST int Size = 1000;
+    // объ€вили массив на 1000 €чеек
+    for (int i = 0; i < Size; i++)
+        {
+            assert (0<= i && i < Size);
+            (*data)[i] = rand; // "записываем" элементы в массив
+        }
+    }
+*/
+
+double   BubbleSort     (double x)
+    {
+    CONST int Size = 1000;
+    int data[Size] = {};
+    for (int vertstep = 0; vertstep < Size; vertstep++)
+        {
+            assert (0<= vertstep && vertstep < Size);
+            data[vertstep] = random(Size*2); // "записываем" элементы в массив
+        }
+    for (int vertstep = 0; vertstep < Size; vertstep++)
+        {
+        for (int horstep = 0; horstep < Size-1; horstep++)
+            {
+            txSetColor      (TX_LIGHTGREEN);
+            txSetFillColor  (TX_LIGHTGREEN);
+            txCircle (100+0.5*vertstep, 500-0.3*horstep, 2);
+            if (data[horstep] > data[horstep + 1])
+                {
+                int pool = data[horstep];            // создали дополнительную переменную
+                data[horstep]  = data[horstep + 1];        // мен€ем местами
+                data[horstep + 1] = pool;            // значени€ элементов
+                txSetColor      (TX_LIGHTRED);
+                txSetFillColor  (TX_LIGHTRED);
+                txCircle (100+0.5*vertstep, 500-0.3*horstep, 2);
+
+                }
+
+            }
+        txSleep(0);
+        }
+
+    }
 
