@@ -31,6 +31,8 @@ struct Button
 rezult  BubbleSort   (int* data, int sizeARR);
 rezult  InsertSort   (int* data, int sizeARR);
 rezult  StupidSort   (int* data, int sizeARR);
+rezult  GnomeSort    (int* data, int sizeARR);
+
 rezult  clerscr      (int* data, int sizeARR);
 rezult  myexit       (int* data, int sizeARR);
 //}----------------------------------------------------------------------------
@@ -49,7 +51,7 @@ int main()
                           { 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  InsertSort},
                           {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  StupidSort},
-                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
+                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  GnomeSort},
                           {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  clerscr},
                           {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  myexit}};
@@ -165,6 +167,12 @@ void Button::Draw () const
         txSetColor      (TX_BLACK);
         txSetFillColor  (TX_BLACK);
         txTextOut       (posx, posy, "StupidSort");
+        }
+if (func == GnomeSort)
+        {
+        txSetColor      (TX_BLACK);
+        txSetFillColor  (TX_BLACK);
+        txTextOut       (posx, posy, "GnomeSort");
         }
 
     if (func == clerscr)
@@ -307,7 +315,7 @@ rezult  InsertSort   (int* data, int sizeARR)
     }
 //}----------------------------------------------------------------------------
 
-//дичайщая кописпаста
+//дичайщая копипаста
 //{----------------------------------------------------------------------------
 rezult StupidSort (int* data, int sizeARR)
     {
@@ -326,11 +334,34 @@ rezult StupidSort (int* data, int sizeARR)
 			}
 		else
             {
-                i += 1;
+                i ++;
             }
         }
 	rezult POINT = {numbexch,numbcompar,TX_YELLOW};
     return POINT;
     }
 //}----------------------------------------------------------------------------
-
+rezult GnomeSort (int* data, int sizeARR)
+    {
+	int i = 1, numbcompar = 0, numbexch = 0;
+	while (i < sizeARR)
+		{
+		//printf ("ЖДЕМ") ;
+		numbcompar++;
+		if (data[i - 1] > data[i])
+            {
+			int pool = data[i - 1];            // создали дополнительную переменную
+            data[i-1]  = data[i];              // меняем местами
+            data[i] = pool;                    // значения элементов
+            numbexch++;
+			i--;
+			}
+		else
+            {
+                i ++;
+            }
+        }
+	rezult POINT = {numbexch,numbcompar,TX_PINK};
+    return POINT;
+    }
+//}
