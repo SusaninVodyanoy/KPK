@@ -1,46 +1,44 @@
 #include "TXLib.h"
 
+
+//{----------------------------------------------------------------------------
 struct rezult
-{
-int         posx1, posy1;
-COLORREF    ColorPOINT;
-};
+    {
+    int         posx1, posy1;
+    COLORREF    ColorPOINT;
+    };
+//}----------------------------------------------------------------------------
 
+
+//{----------------------------------------------------------------------------
 struct Button
-{
-int         posx, posy;
-int         sizex, sizey;
-COLORREF    corolBody;
-COLORREF    corolFrame;
-bool        CLick;
-rezult      (*func) (int* data,int sizeARR);
+    {
+    int         posx, posy;
+    int         sizex, sizey;
+    COLORREF    corolBody;
+    COLORREF    corolFrame;
+    bool        CLick;
+    rezult      (*func) (int* data,int sizeARR);
 
-void        Draw    () const;
-void        OnCLick (int numb);
-void        DrawSort ();
-
-};
-
-
-
-//void DrawGraphic    (double (*func) (double x), COLORREF color,
-//                    double k = 1, double l = 1,
-//                    double a = 0, double b = 0);
-
-rezult  Sqr          (int* data, int sizeARR);
-
-rezult  clerscr      (int* data, int sizeARR);
-rezult  myexit       (int* data, int sizeARR);
+    void        Draw    () const;
+    void        OnCLick (int numb);
+    void        DrawSort ();
+    };
+//}----------------------------------------------------------------------------
 
 
+//{----------------------------------------------------------------------------
 rezult  BubbleSort   (int* data, int sizeARR);
 rezult  InsertSort   (int* data, int sizeARR);
+rezult  clerscr      (int* data, int sizeARR);
+rezult  myexit       (int* data, int sizeARR);
+//}----------------------------------------------------------------------------
 
+
+//{----------------------------------------------------------------------------
 void  SelectWay      ();
-
-int* CreateArray    (int sizeARR);
-
-
+int*  CreateArray    (int sizeARR);
+//}----------------------------------------------------------------------------
 
 
 int main()
@@ -62,18 +60,23 @@ int main()
 
     while (!txGetAsyncKeyState (VK_ESCAPE))
         {
+        txSetFillColor (TX_WHITE);
         txTextOut   (100, 100, "Выберите способ сортировки от 1 до 5");
         for (int i = 0; i<7; i ++)
             {
             Buttons[i].Draw     ();
             Buttons[i].OnCLick  (i);
+            if (Buttons[i].func == myexit && Buttons[i].CLick)
+                {
+                 return EXIT_SUCCESS;
+                }
             }
         SelectWay ();
 
         txSleep (0);
         }
 
-    return 0;
+   // return 0;
     }
 
 
@@ -119,8 +122,8 @@ void SelectWay ()
         txClear     ();
         }
     }
-//}----------------------------------------------------------------------------    
-    
+//}----------------------------------------------------------------------------
+
 //{----------------------------------------------------------------------------
 void Button::Draw () const
     {
@@ -129,6 +132,34 @@ void Button::Draw () const
     txSetColor      (corolFrame);
     txRectangle     (posx, posy, posx+sizex, posy+sizey);
 
+    if (func == BubbleSort)
+        {
+        txSetColor      (TX_BLACK);
+        txSetFillColor  (TX_BLACK);
+        txTextOut       (posx, posy, "BubbleSort");
+        }
+
+
+   if (func == InsertSort)
+        {
+        txSetColor      (TX_BLACK);
+        txSetFillColor  (TX_BLACK);
+        txTextOut       (posx, posy, "InsertSort");
+        }
+
+    if (func == clerscr)
+        {
+        txSetColor      (TX_BLACK);
+        txSetFillColor  (TX_BLACK);
+        txTextOut       (posx, posy, "cleerscrin");
+        }
+
+    if (func == myexit)
+        {
+        txSetColor      (TX_BLACK);
+        txSetFillColor  (TX_BLACK);
+        txTextOut       (posx, posy, "exit");
+        }
     }
 //}----------------------------------------------------------------------------
 
@@ -161,7 +192,11 @@ rezult  clerscr(int* data, int sizeARR)
 //}----------------------------------------------------------------------------
 
 //{----------------------------------------------------------------------------
-rezult  myexit (int* data, int sizeARR) { };
+rezult  myexit (int* data, int sizeARR)
+    {
+    rezult POINT = {0,0,TX_BLACK};
+    return POINT;
+    };
 //}----------------------------------------------------------------------------
 
 
