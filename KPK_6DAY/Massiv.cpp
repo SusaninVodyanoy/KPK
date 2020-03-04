@@ -9,7 +9,7 @@ void FillArray (int data[],int Size);
 int main()
     {
     CONST int Size = 20;
-    int data[Size] = {};
+    int POINT[2] = {};
 
     FillArray (data[],Size);
     $data;

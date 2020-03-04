@@ -1,5 +1,11 @@
 #include "TXLib.h"
 
+struct rezult
+{
+int         posx1, posy1;
+COLORREF    ColorPOINT;
+};
+
 struct Button
 {
 int         posx, posy;
@@ -7,34 +13,43 @@ int         sizex, sizey;
 COLORREF    corolBody;
 COLORREF    corolFrame;
 bool        CLick;
-double      (*func) (double x);
+rezult      (*func) (int* data,int sizeARR);
+
 void        Draw    () const;
-void        DrawGraphic ();
 void        OnCLick (int numb);
+void        DrawSort ();
+
 };
+
+
 
 //void DrawGraphic    (double (*func) (double x), COLORREF color,
 //                    double k = 1, double l = 1,
 //                    double a = 0, double b = 0);
 
-double Sqr          (double x);
-double InsertSort   (double x);
-double clerscr(double x);
-double myexit (double x);
+rezult  Sqr          (int* data, int sizeARR);
 
-void SelectWay      ();
+rezult  clerscr      (int* data, int sizeARR);
+rezult myexit       (int* data, int sizeARR);
 
-void CreateArray    ();
-double BubbleSort   (double x);
+
+rezult  BubbleSort   (int* data, int sizeARR);
+rezult  InsertSort   (int* data, int sizeARR);
+void  SelectWay      ();
+
+int* CreateArray    (int sizeARR);
+
+
 
 
 int main()
     {
 
-    Button Buttons [7] = {{ 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  sin},
-                          {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  cos},
-                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  Sqr},
-                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  InsertSort},
+    Button Buttons [7] = {
+                          { 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  InsertSort},
+                          {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
+                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
+                          {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  clerscr},
                           {670,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  myexit}};
@@ -61,6 +76,7 @@ int main()
 
     return 0;
     }
+
 
 
 void SelectWay ()
@@ -114,6 +130,8 @@ void Button::Draw () const
 
     }
 
+
+//{----------------------------------------------------------------------------
 void Button::OnCLick (int numb)
     {
     if (txMouseX()>posx && txMouseX()<posx+sizex && txMouseY()>posy && txMouseY()<posy+sizey)
@@ -122,140 +140,116 @@ void Button::OnCLick (int numb)
         if (txMouseButtons() & 1)
             {
             CLick=true;
-            DrawGraphic ();
             //printf ("Ќажата кнопка %d\n", numb);
+            DrawSort ();
+
             }
         }
     }
+//}----------------------------------------------------------------------------
 
-//typedef double (*func) (double x);
-
-void Button::DrawGraphic ()/*, COLORREF color,
-                    double k, double l,
-                    double a, double b) */
+//{----------------------------------------------------------------------------
+rezult  clerscr(int* data, int sizeARR)
     {
-    txSetColor      (TX_LIGHTRED);
-    txSetFillColor  (TX_LIGHTRED);
+    txSetFillColor  (TX_BLACK);
+    txClear         ();
+    rezult POINT = {0,0,TX_BLACK};
 
-    if (!(func==clerscr || func==myexit || func==BubbleSort))
-        {
-        double k = 1, l = 1, a = 0, b = 0;
+    return POINT;
+    }
+//}----------------------------------------------------------------------------
 
-        double x = -10;
-        while (x<= +10)
+//{----------------------------------------------------------------------------
+rezult  myexit (int* data, int sizeARR) { };
+//}----------------------------------------------------------------------------
+
+
+
+//{----------------------------------------------------------------------------
+int* CreateArray    (int sizeARR)
+    {
+    int* data = new int [sizeARR];
+    for (int vertstep = 0; vertstep < sizeARR; vertstep++)
             {
-            double y = k*func(l*x+a)+b;
-
-            txCircle (400+50*x, 300 - 50*y, 2);
-
-            x += 0.01 ;
+                assert (0<= vertstep && vertstep < sizeARR);
+                data[vertstep] = rand();
             }
-        }
-    if (func==BubbleSort)
-        {
-        double x = 0;
-        BubbleSort(x);
-        }
-    if (func==clerscr)
-        {
-        double x = 0;
-        clerscr (x);
-        }
-    if (func==myexit)
-        {
-        double x = 0;
-        myexit (x);
-        }
+    return data;
     }
-//void Button::CHeckOnCLick
- //   {
- //
- //           DrawGraphic(func,   TX_LIGHTGREEN   ,t   , 1        );
-    //}
-    //}
+//}----------------------------------------------------------------------------
 
-double Sqr    (double x) {return x*x;}
-double cos2   (double x) {return cos(2*x);}
-double clerscr(double x) {txSetFillColor (TX_BLACK);
-                          txClear     ();}
-double myexit (double x) { };
 
-/*void   CreateArray     (int (*data)[],int Size)
+//{----------------------------------------------------------------------------
+void   Button::DrawSort     ()
     {
-    //CONST int Size = 1000;
-    // объ€вили массив на 1000 €чеек
-    for (int i = 0; i < Size; i++)
+     int y = 0;
+     ;
+     for (int x = 1; x < 800; x++)
         {
-            assert (0<= i && i < Size);
-            (*data)[i] = rand; // "записываем" элементы в массив
+        //printf ("DrawSort");
+        int* data = CreateArray(x);
+        rezult POINT = func (data, x);
+        txSetColor      (POINT.ColorPOINT);
+        txSetFillColor  (POINT.ColorPOINT);
+        txCircle (20+x*0.4, 550-POINT.posx1*0.2, 2);
+        txCircle (470+x*0.4, 550-POINT.posy1*0.2, 2);
         }
+
+
     }
-*/
+//}----------------------------------------------------------------------------
 
-double   BubbleSort     (double x)
+//{----------------------------------------------------------------------------
+rezult BubbleSort  (int* data, int sizeARR)
     {
-    CONST int Size = 1000;
-    int data[Size] = {};
-    for (int vertstep = 0; vertstep < Size; vertstep++)
+
+    int numbcompar = 0, numbexch = 0;
+    //printf ("BubbleSort") ;
+    for (int vertstep = 0; vertstep < sizeARR; vertstep++)
         {
-            assert (0<= vertstep && vertstep < Size);
-            data[vertstep] = random(Size*2); // "записываем" элементы в массив
-        }
-    for (int vertstep = 0; vertstep < Size; vertstep++)
-        {
-        for (int horstep = 0; horstep < Size-1; horstep++)
+        for (int horstep = 0; horstep < sizeARR-1; horstep++)
             {
-            txSetColor      (TX_LIGHTGREEN);
-            txSetFillColor  (TX_LIGHTGREEN);
-            txCircle (100+0.5*vertstep, 500-0.3*horstep, 2);
+             numbcompar++;
             if (data[horstep] > data[horstep + 1])
                 {
                 int pool = data[horstep];            // создали дополнительную переменную
-                data[horstep]  = data[horstep + 1];        // мен€ем местами
+                data[horstep]  = data[horstep + 1];  // мен€ем местами
                 data[horstep + 1] = pool;            // значени€ элементов
-                txSetColor      (TX_LIGHTRED);
-                txSetFillColor  (TX_LIGHTRED);
-                txCircle (100+0.5*vertstep, 500-0.3*horstep, 2);
-
+                numbexch++;
                 }
-
             }
-        txSleep(0);
         }
+    rezult POINT = {numbexch,numbcompar,TX_LIGHTRED};
 
+    return POINT;
     }
+//}----------------------------------------------------------------------------
 
-double      InsertSort     (double x)
+//{----------------------------------------------------------------------------
+rezult  InsertSort   (int* data, int sizeARR)
     {
-    CONST int Size = 1000;
-    int data[Size] = {};
-    for (int vertstep = 0; vertstep < Size; vertstep++)
+
+    int numbcompar = 0, numbexch = 0;
+    for (int vertstep = 1; vertstep < sizeARR; vertstep++)
         {
-            assert (0<= vertstep && vertstep < Size);
-            data[vertstep] = random(Size*2); // "записываем" элементы в массив
-        }
-    for (int vertstep = 1; vertstep < Size; vertstep++)
-        {
-        txSetColor      (TX_LIGHTGREEN);
-        txSetFillColor  (TX_LIGHTGREEN);
-        txCircle (100+0.5*vertstep, 500-0.3*vertstep, 2);
         int pool = data[vertstep];
+        numbcompar++;
         if (data[vertstep-1] > data[vertstep])
             {
             int horstep2 = vertstep;
-            for (horstep2 = horstep; data[horstep2] > data[horstep2-1]; horstep2--)
+            for (horstep2 = vertstep; data[horstep2] > data[horstep2-1]; horstep2--)
                 {
 
                 data[horstep2]  = data[horstep2 - 1];
 
                 }
             data[horstep2]  = pool;
-            txSetColor      (TX_LIGHTRED);
-            txSetFillColor  (TX_LIGHTRED);
-            txCircle (100+0.5*horstep2, 500-0.3*horstep2, 2);
+            numbexch++;
             }
-            txSleep(0);
         }
 
-    }
+    rezult POINT = {numbexch,numbcompar,TX_LIGHTGREEN};
 
+    return POINT;
+    }
+//}----------------------------------------------------------------------------
