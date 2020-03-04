@@ -30,6 +30,7 @@ struct Button
 //{----------------------------------------------------------------------------
 rezult  BubbleSort   (int* data, int sizeARR);
 rezult  InsertSort   (int* data, int sizeARR);
+rezult  StupidSort   (int* data, int sizeARR);
 rezult  clerscr      (int* data, int sizeARR);
 rezult  myexit       (int* data, int sizeARR);
 //}----------------------------------------------------------------------------
@@ -47,7 +48,7 @@ int main()
     Button Buttons [7] = {
                           { 10,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  InsertSort},
                           {120,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
-                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
+                          {230,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  StupidSort},
                           {340,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {450,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  BubbleSort},
                           {560,10, 100, 50, TX_YELLOW, TX_LIGHTGREEN, false,  clerscr},
@@ -61,20 +62,20 @@ int main()
     while (!txGetAsyncKeyState (VK_ESCAPE))
         {
         txTextOut   (100, 100, "Выберите способ сортировки от 1 до 5");
-        for (int ix= 20; ix < 340; ix+=10)
+
+        for (int ix= 20; ix < 340; ix+=50)
             {
             txSetFillColor  (TX_WHITE);
             txSetColor  (TX_WHITE);
             txLine (ix, 550, ix, 130);
             txLine (ix+450, 550, ix+450, 130);
-            for (int iy= 550; iy > 130; iy-=10)
-            txLine (20, iy, 340, iy);
+            for (int iy= 550; iy > 130; iy-=50)
+                {
+                txLine (20, iy, 340, iy);
+                txLine (470, iy, 790, iy);
+                }
             }
 
-
-
-        //txCircle (20+x*0.4, 550-POINT.posx1*0.2, 2);
-        //txCircle (470+x*0.4, 550-POINT.posy1*0.2, 2);
         for (int i = 0; i<7; i ++)
             {
             Buttons[i].Draw     ();
@@ -152,12 +153,18 @@ void Button::Draw () const
         txTextOut       (posx, posy, "BubbleSort");
         }
 
-
    if (func == InsertSort)
         {
         txSetColor      (TX_BLACK);
         txSetFillColor  (TX_BLACK);
         txTextOut       (posx, posy, "InsertSort");
+        }
+
+    if (func == StupidSort)
+        {
+        txSetColor      (TX_BLACK);
+        txSetFillColor  (TX_BLACK);
+        txTextOut       (posx, posy, "StupidSort");
         }
 
     if (func == clerscr)
@@ -214,8 +221,6 @@ rezult  myexit (int* data, int sizeARR)
     };
 //}----------------------------------------------------------------------------
 
-
-
 //{----------------------------------------------------------------------------
 int* CreateArray    (int sizeARR)
     {
@@ -229,24 +234,21 @@ int* CreateArray    (int sizeARR)
     }
 //}----------------------------------------------------------------------------
 
-
 //{----------------------------------------------------------------------------
 void   Button::DrawSort     ()
     {
      int y = 0;
      ;
-     for (int x = 1; x < 800; x++)
+     for (int x = 1; x < 500; x++)
         {
         //printf ("DrawSort");
         int* data = CreateArray(x);
         rezult POINT = func (data, x);
         txSetColor      (POINT.ColorPOINT);
         txSetFillColor  (POINT.ColorPOINT);
-        txCircle (20+x*0.4, 550-POINT.posx1*0.2, 2);
-        txCircle (470+x*0.4, 550-POINT.posy1*0.2, 2);
+        txCircle ( 20+x*0.9, 550-POINT.posx1*0.4, 2);
+        txCircle (470+x*0.9, 550-POINT.posy1*0.4, 2);
         }
-
-
     }
 //}----------------------------------------------------------------------------
 
@@ -304,3 +306,31 @@ rezult  InsertSort   (int* data, int sizeARR)
     return POINT;
     }
 //}----------------------------------------------------------------------------
+
+//дичайщая копипаста
+//{----------------------------------------------------------------------------
+rezult StupidSort (int* data, int sizeARR)
+    {
+	int i = 1, numbcompar = 0, numbexch = 0;
+	while (i < sizeARR)
+		{
+		//printf ("ЖДЕМ") ;
+		numbcompar++;
+		if (data[i - 1] > data[i])
+            {
+			int pool = data[i - 1];            // создали дополнительную переменную
+            data[i-1]  = data[i];              // меняем местами
+            data[i] = pool;                    // значения элементов
+            numbexch++;
+			i = 1;
+			}
+		else
+            {
+                i += 1;
+            }
+        }
+	rezult POINT = {numbexch,numbcompar,TX_YELLOW};
+    return POINT;
+    }
+//}----------------------------------------------------------------------------
+
