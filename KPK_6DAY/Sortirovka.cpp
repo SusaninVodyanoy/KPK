@@ -61,6 +61,20 @@ int main()
     while (!txGetAsyncKeyState (VK_ESCAPE))
         {
         txTextOut   (100, 100, "Выберите способ сортировки от 1 до 5");
+
+        for (int ix= 20; ix < 340; ix+=50)
+            {
+            txSetFillColor  (TX_WHITE);
+            txSetColor  (TX_WHITE);
+            txLine (ix, 550, ix, 130);
+            txLine (ix+450, 550, ix+450, 130);
+            for (int iy= 550; iy > 130; iy-=50)
+                {
+                txLine (20, iy, 340, iy);
+                txLine (470, iy, 790, iy);
+                }
+            }
+
         for (int i = 0; i<7; i ++)
             {
             Buttons[i].Draw     ();
